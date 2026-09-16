@@ -1,0 +1,14 @@
+{
+  "name": "wake",
+  "private": true,
+  "description": "Non-custodial copy-trading for Stellar/Soroban DEXs.",
+  "scripts": {
+    "test": "pnpm --filter wake-engine test",
+    "lint": "pnpm --filter wake-engine lint",
+    "typecheck": "pnpm --filter wake-engine typecheck",
+    "build": "pnpm --filter wake-engine build"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}
