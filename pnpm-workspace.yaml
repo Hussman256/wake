@@ -1,3 +1,4 @@
 packages:
   - "wake-engine"
   - "wake-app"
+  - "wake-app/backend"

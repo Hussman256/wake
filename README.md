@@ -9,6 +9,8 @@ its swaps proportionally, never give up your keys.
   wallet, sizes and builds mirrored swap transactions, exposes a CLI demo.
 - [`wake-app`](./wake-app) — the React Native (Expo) app: wallet connect,
   leaderboard, follow flow, portfolio.
+- [`wake-app/backend`](./wake-app/backend) — the leaderboard indexer: a cron
+  job plus a small REST API the app reads its leaderboard from.
 
 This started as a single build-plan doc; the two packages are kept
 independent inside this repo (own `package.json`, own README) so either can
