@@ -8,7 +8,7 @@ Cron indexer + small REST API backing the app's leaderboard screen.
   [`src/pnl.ts`](./src/pnl.ts) for the exact method and its v1 limitations).
 - A REST API (`GET /leaderboard`, `GET /wallets/:address`,
   `GET /wallets/:address/trades`, `POST /wallets/:address/follow`) serves
-  that data to the app and to `wake-web`.
+  that data to the app.
 
 ## Setup
 

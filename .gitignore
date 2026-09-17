@@ -9,6 +9,3 @@ dist/
 .expo-shared/
 coverage/
 *.tsbuildinfo
-
-.vercel
-.env*

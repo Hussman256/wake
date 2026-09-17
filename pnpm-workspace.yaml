@@ -2,8 +2,3 @@ packages:
   - "wake-engine"
   - "wake-app"
   - "wake-app/backend"
-  - "wake-web"
-
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
