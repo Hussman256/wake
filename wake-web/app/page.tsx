@@ -30,6 +30,13 @@ export default function ConnectPage() {
     }
   };
 
+  const handlePreview = () => {
+    // No real wallet needed: lets anyone browse Discover/Dossier/Mirror
+    // setup/Portfolio without installing Freighter first.
+    connect("GDEMOPREV1EW0000000000000000000000000000000000000000", "demo");
+    router.push("/discover");
+  };
+
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden bg-wake-surface">
       <div
@@ -113,6 +120,14 @@ export default function ConnectPage() {
               Non-custodial by construction. Not by policy.
             </p>
           </div>
+
+          <button
+            type="button"
+            onClick={handlePreview}
+            className="mt-1 text-center text-[13px] text-wake-ink-mute underline underline-offset-2 hover:text-wake-ink"
+          >
+            Don&apos;t have a wallet? Preview the app without connecting →
+          </button>
         </div>
       </div>
     </div>
