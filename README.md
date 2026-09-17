@@ -10,11 +10,14 @@ its swaps proportionally, never give up your keys.
 - [`wake-app`](./wake-app) — the React Native (Expo) app: wallet connect,
   leaderboard, follow flow, portfolio.
 - [`wake-app/backend`](./wake-app/backend) — the leaderboard indexer: a cron
-  job plus a small REST API the app reads its leaderboard from.
+  job plus a small REST API the mobile and web apps read their leaderboard
+  from.
+- [`wake-web`](./wake-web) — the web app (Next.js): Freighter connect,
+  Discover/Dossier/Mirror-setup/Portfolio, denser and desktop-sized.
 
-This started as a single build-plan doc; the two packages are kept
-independent inside this repo (own `package.json`, own README) so either can
-be split into its own repo later without restructuring.
+This started as a single build-plan doc; the packages are kept independent
+inside this repo (own `package.json`, own README) so any of them can be
+split into its own repo later without restructuring.
 
 ## Status
 

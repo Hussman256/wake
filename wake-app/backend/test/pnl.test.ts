@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeWalletStats, type TradeRow } from "../src/pnl.js";
+import { computeWalletStats, walkTrades, type TradeRow } from "../src/pnl.js";
 
 function trade(overrides: Partial<TradeRow>): TradeRow {
   return {
@@ -93,5 +93,22 @@ describe("computeWalletStats", () => {
     expect(stats.pnlPct).toBe(0);
     expect(stats.winRate).toBe(0);
     expect(stats.tradeCount).toBe(0);
+  });
+});
+
+describe("walkTrades", () => {
+  it("annotates each trade with its kind and realized PnL", () => {
+    const trades: TradeRow[] = [
+      trade({ sellCode: "XLM", sellIssuer: null, buyCode: "AQUA", buyIssuer: "GISSUER", sellAmount: 100_0000000n, buyAmount: 50_0000000n, tradedAt: new Date("2026-01-01T00:00:00Z") }),
+      trade({ sellCode: "AQUA", sellIssuer: "GISSUER", buyCode: "XLM", buyIssuer: null, sellAmount: 50_0000000n, buyAmount: 150_0000000n, tradedAt: new Date("2026-01-02T00:00:00Z") }),
+      trade({ sellCode: "AQUA", sellIssuer: "GISSUER", buyCode: "USDC", buyIssuer: "GUSDC", tradedAt: new Date("2026-01-03T00:00:00Z") }),
+    ];
+
+    const results = walkTrades(trades);
+
+    expect(results.map((r) => r.kind)).toEqual(["entry", "exit", "skipped"]);
+    expect(results[0]!.realizedPnlStroops).toBeNull();
+    expect(results[1]!.realizedPnlStroops).toBe(50_0000000n);
+    expect(results[2]!.realizedPnlStroops).toBeNull();
   });
 });
